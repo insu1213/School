@@ -93,17 +93,18 @@ void insu(int j) {
 }
 
 void basic() {
-	gotoxy(1, 18);
-	printf("----------------------\n");
+	gotoxy(0, 18);
+	printf("------------------------\n");
 	gotoxy(0, 0);
-	printf("----------------------\n");
-	printf(0, 1);
+	printf("------------------------\n");
+	gotoxy(0, 1);
 }
 
 int main() {
 	int s = 0;
 	clock_t timer = clock();
 	basic();
+	int point = 0;
 
 	while (s < sizeof(note) / sizeof(note[0])) {
 
@@ -115,32 +116,107 @@ int main() {
 				if (note[tmp][0] == 1) {
 					if (c == 'a') {
 						gotoxy(1, 20);
-						printf("GOOD");
+						if (80 < clock() - timer && clock() - timer < 120) {
+							printf("BEST");
+							point += 300;
+						}
+						else if ((clock() - timer <= 80 && clock() - timer > 50) || (clock() - timer >= 120 && clock() - timer < 150)) {
+							printf("GOOD");
+							point += 100;
+						}
+						else if (clock() - timer <= 50) {
+							printf("SLOW");
+							point += 50;
+						}
+						else if (clock() - timer >= 150) {
+							printf("FAST");
+							point += 50;
+						}
+						else {
+							printf("MISS");
+						}
 					}
 				}
 
 				if (note[tmp][1] == 1) {
 					if (c == 's') {
 						gotoxy(7, 20);
-						printf("GOOD");
+						if (80 < clock() - timer && clock() - timer < 120) {
+							printf("BEST");
+							point += 300;
+						}
+						else if ((clock() - timer <= 80 && clock() - timer > 50) || (clock() - timer >= 120 && clock() - timer < 150)) {
+							printf("GOOD");
+							point += 100;
+						}
+						else if (clock() - timer <= 50) {
+							printf("SLOW");
+							point += 50;
+						}
+						else if (clock() - timer >= 150) {
+							printf("FAST");
+							point += 50;
+						}
+						else {
+							printf("MISS");
+						}
 					}
 				}
 
 				if (note[tmp][2] == 1) {
 					if (c == ';') {
 						gotoxy(13, 20);
-						printf("GOOD");
+						if (80 < clock() - timer && clock() - timer < 120) {
+							printf("BEST");
+							point += 300;
+						}
+						else if ((clock() - timer <= 80 && clock() - timer > 50) || (clock() - timer >= 120 && clock() - timer < 150)) {
+							printf("GOOD");
+							point += 100;
+						}
+						else if (clock() - timer <= 50) {
+							printf("SLOW");
+							point += 50;
+						}
+						else if (clock() - timer >= 150) {
+							printf("FAST");
+							point += 50;
+						}
+						else {
+							printf("MISS");
+						}
 					}
 				}
 
 				if (note[tmp][3] == 1) {
 					if (c == '\'') {
 						gotoxy(19, 20);
-						printf("GOOD");
+						if (80 < clock() - timer && clock() - timer < 120) {
+							printf("BEST");
+							point += 300;
+						}
+						else if ((clock() - timer <= 80 && clock() - timer > 50) || (clock() - timer >= 120 && clock() - timer < 150)) {
+							printf("GOOD");
+							point += 100;
+						}
+						else if (clock() - timer <= 50) {
+							printf("SLOW");
+							point += 50;
+						}
+						else if (clock() - timer >= 150) {
+							printf("FAST");
+							point += 50;
+						}
+						else {
+							printf("MISS");
+						}
 					}
 				}
 			}
-		}
+		} 
+		/*else if (note[tmp][0] == 1 || note[tmp][1] == 1 || note[tmp][2] == 1 || note[tmp][3] == 1) {
+
+		}*/
 
 		if (clock() - timer >= 200) {
 			system("cls");
@@ -159,7 +235,7 @@ int main() {
 					printf("\n");
 					printf("\n");
 					/*gotoxy(0, 0);*/
-
+					
 				}
 			}
 
